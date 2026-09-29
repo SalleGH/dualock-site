@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support — DuaLock</title>
+<meta name="description" content="Help with DuaLock: manage or cancel your subscription, restore purchases, free access codes, and Focus Mode.">
 <style>
   * { box-sizing: border-box; margin: 0; }
   body {
@@ -15,7 +16,7 @@
   main { max-width: 640px; margin: 0 auto; }
   a { color: #c9a84c; }
   .home { font-size: 14px; text-decoration: none; color: #aab4c8; }
-  .home:hover { color: #c9a84c; }
+  .home:hover, .home:focus { color: #c9a84c; }
   h1 {
     font-family: "Iowan Old Style", Palatino, Georgia, serif;
     font-size: 34px; font-weight: 600;
@@ -26,17 +27,21 @@
     font-size: 21px; font-weight: 600;
     margin: 30px 0 10px; color: #c9a84c;
   }
-  p { color: #cdd4e0; margin-bottom: 12px; }
+  p, li { color: #cdd4e0; margin-bottom: 12px; }
+  ol, ul { padding-left: 22px; }
   .card {
     background: #101f36; border: 1px solid #223454; border-radius: 12px;
     padding: 18px 20px; margin: 6px 0 22px;
   }
   .card a { font-weight: 600; }
+  nav.more { margin-top: 48px; display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; }
+  nav.more a { color: #aab4c8; text-decoration: none; }
+  nav.more a:hover, nav.more a:focus { color: #c9a84c; }
 </style>
 </head>
 <body>
 <main>
-  <a class="home" href="/">&larr; dualock.app</a>
+  <a class="home" href="../">&larr; DuaLock</a>
   <h1>Support</h1>
 
   <div class="card">
@@ -44,14 +49,35 @@
     <a href="mailto:skalmandev@gmail.com?subject=DuaLock%20Support">skalmandev@gmail.com</a></p>
   </div>
 
-  <h2>Managing your subscription</h2>
-  <p>Subscriptions are handled by Apple. To view, change, or cancel: open <strong>Settings</strong> on your iPhone → tap your name → <strong>Subscriptions</strong> → <strong>DuaLock</strong>. Cancelling during the free trial means you won't be charged.</p>
+  <h2>Manage or cancel your subscription</h2>
+  <p>DuaLock Premium is billed by Apple. To change or cancel it:</p>
+  <ol>
+    <li>Open <strong>Settings</strong> on your iPhone.</li>
+    <li>Tap your name, then <strong>Subscriptions</strong>.</li>
+    <li>Tap <strong>DuaLock</strong>, then choose a plan or <strong>Cancel Subscription</strong>.</li>
+  </ol>
+  <p>You can also tap <strong>Manage subscription</strong> in DuaLock's Settings. Cancel at least 24 hours before your free trial or current period ends to avoid being charged for the next one. Refunds are handled by Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
 
-  <h2>Focus Mode &amp; Screen Time permission</h2>
-  <p>Focus Mode needs Apple's Screen Time permission to block the apps you choose. You can grant or revoke it anytime in <strong>Settings → Screen Time</strong>. DuaLock never sees or shares your app usage — see our <a href="/privacy/">Privacy Policy</a>.</p>
+  <h2>Restore your subscription</h2>
+  <p>On a new iPhone or after reinstalling, sign in with the Apple Account you subscribed with, then tap <strong>I already have DuaLock Premium</strong> on the welcome screen — or <strong>Restore Purchases</strong> on the subscription screen or in DuaLock's Settings.</p>
+
+  <h2>Can't afford it right now?</h2>
+  <p>Email <a href="mailto:skalmandev@gmail.com?subject=DuaLock%20access">skalmandev@gmail.com</a> with the subject "DuaLock access". We'll reply with a code for 12 months of DuaLock Premium, free.</p>
+
+  <h2>Redeem a code</h2>
+  <p>In DuaLock, tap <strong>Redeem code</strong> on the subscription screen or in Settings. Or open the App Store app, tap your profile picture, then <strong>Redeem Gift Card or Code</strong>.</p>
+
+  <h2>Focus Mode &amp; Screen Time</h2>
+  <p>Focus Mode uses Apple's Screen Time permission to place a dua before the apps you choose. You pick the apps; DuaLock never sees which ones. Turn Focus Mode off anytime in DuaLock's Focus tab, and manage Screen Time access in iPhone <strong>Settings &rarr; Screen Time</strong>.</p>
+  <p>If "Your dua is ready" doesn't appear after you tap <strong>Read my dua</strong>, allow notifications for DuaLock in <strong>Settings &rarr; Notifications</strong>, or simply open DuaLock. If your subscription ends, Focus Mode turns off and every app unlocks automatically.</p>
 
   <h2>About the content</h2>
-  <p>All 223 duas come from Hisn al-Muslim (Fortress of the Muslim), with Arabic text, transliteration, English translation, and source references. If you spot an error in any dua, please email us — corrections are treated with the highest priority.</p>
+  <p>All 223 duas are as compiled in <em>Hisn al-Muslim</em> (Fortress of the Muslim) by Sa'id bin Ali bin Wahf al-Qahtani, each with Arabic text, transliteration, English translation, and its hadith source and grading. The English translation, transliteration and audio were prepared for DuaLock. If you spot an error in any dua, please email us — corrections are treated with the highest priority.</p>
+
+  <nav class="more" aria-label="More">
+    <a href="../privacy/">Privacy Policy</a>
+    <a href="../terms/">Terms of Use</a>
+  </nav>
 </main>
 </body>
 </html>

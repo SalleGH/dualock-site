@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DuaLock</title>
-<meta name="description" content="DuaLock — daily duas from Hisn al-Muslim with English audio, a personal daily plan, and Focus Mode. Coming to the App Store.">
+<title>DuaLock — A dua before you scroll</title>
+<meta name="description" content="DuaLock places a short, authentic dua between you and the apps that pull you away. Duas from Hisn al-Muslim with clear English audio, a personal Dua Path, and Focus Mode for iPhone.">
 <style>
   * { box-sizing: border-box; margin: 0; }
   body {
@@ -33,9 +33,13 @@
     font-size: 42px;
     font-weight: 600;
     letter-spacing: 0.01em;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
-  .tagline { color: #aab4c8; max-width: 34ch; margin-bottom: 10px; }
+  .lead {
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 22px; color: #c9a84c; margin-bottom: 14px;
+  }
+  .tagline { color: #aab4c8; max-width: 36ch; margin-bottom: 10px; }
   .soon {
     color: #c9a84c;
     font-size: 13px;
@@ -44,7 +48,7 @@
     font-weight: 600;
     margin-top: 18px;
   }
-  footer { margin-top: 64px; display: flex; gap: 28px; }
+  footer { margin-top: 64px; display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; }
   footer a { color: #aab4c8; text-decoration: none; font-size: 14px; border-bottom: 1px solid #aab4c833; padding-bottom: 2px; }
   footer a:hover, footer a:focus { color: #c9a84c; border-color: #c9a84c; }
 </style>
@@ -57,11 +61,13 @@
     </svg>
   </div>
   <h1>DuaLock</h1>
-  <p class="tagline">Daily duas from Hisn al-Muslim — with English audio, a personal daily plan, and Focus Mode for your phone.</p>
-  <p class="soon">Coming to the App&nbsp;Store</p>
+  <p class="lead">A dua before you scroll.</p>
+  <p class="tagline">Authentic duas from Hisn al-Muslim with clear English audio, a personal Dua Path, and Focus Mode for iPhone.</p>
+  <p class="soon" id="availability">Coming to the App&nbsp;Store</p>
   <footer>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/support/">Support</a>
+    <a href="privacy/">Privacy Policy</a>
+    <a href="terms/">Terms of Use</a>
+    <a href="support/">Support</a>
   </footer>
 </body>
 </html>
