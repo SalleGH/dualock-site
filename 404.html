@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+  // GitHub Pages serves this page at any missing URL, so relative links need a fixed base:
+  // "/dualock-site/" on sallegh.github.io, "/" on a custom domain such as dualock.app.
+  (function () {
+    var base = document.createElement("base");
+    base.href = location.pathname.indexOf("/dualock-site/") === 0 ? "/dualock-site/" : "/";
+    document.head.appendChild(base);
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — DuaLock</title>
+<meta name="description" content="This page doesn't exist. Find DuaLock's home page, privacy policy, terms and support here.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1628">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./"><img src="assets/img/icon.webp" alt="" width="32" height="32">DuaLock</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="privacy/">Privacy</a></li>
+        <li><a href="terms/">Terms</a></li>
+        <li><a href="support/">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="container not-found">
+  <p class="eyebrow">Error 404</p>
+  <h1>Page not found</h1>
+  <p>We couldn't find that page. It may have moved, or the address may be mistyped.</p>
+  <div class="actions">
+    <a class="button" href="./">Go to the home page</a>
+    <a href="support/">Get support</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/img/icon.webp" alt="" width="44" height="44">
+      <div>
+        <p class="footer-name">DuaLock</p>
+        <p class="footer-tag">A dua before you scroll</p>
+      </div>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-links">
+        <li><a href="privacy/">Privacy Policy</a></li>
+        <li><a href="terms/">Terms of Use</a></li>
+        <li><a href="support/">Support</a></li>
+        <li><a href="mailto:skalmandev@gmail.com">skalmandev@gmail.com</a></li>
+      </ul>
+    </nav>
+    <p class="copyright">© 2026 DuaLock</p>
+  </div>
+</footer>
+</body>
+</html>
