@@ -1,0 +1,14 @@
+# Deploy with: npx wrangler deploy (from this folder)
+name = "dualock-waitlist"
+main = "waitlist.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+routes = [
+  { pattern = "api.dualock.app", custom_domain = true }
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dualock-waitlist"
+database_id = "ef7f31c8-cdc8-4bfa-9dcf-78f21c68cad9"
