@@ -164,13 +164,13 @@ a:hover { color: var(--gold-bright); }
   align-items: center;
   gap: 0.6rem;
   color: var(--text);
-  font: 700 1.1875rem/1 var(--font-head);
+  font: 700 1.375rem/1 var(--font-head);
   text-decoration: none;
 }
 .brand:hover { color: var(--text); }
 .brand img {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 22.37%;
   box-shadow: 0 0 0 1px rgba(243, 238, 223, 0.12);
 }
@@ -200,6 +200,8 @@ a:hover { color: var(--gold-bright); }
 @media (max-width: 30rem) {
   .site-nav .nav-extra { display: none; }
   .site-nav a { padding-inline: 0.5rem; }
+  .brand { gap: 0.5rem; font-size: 1.25rem; }
+  .brand img { width: 2.25rem; height: 2.25rem; }
 }
 
 /* ---------- Home: hero ---------- */
@@ -258,6 +260,30 @@ a:hover { color: var(--gold-bright); }
   box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.2);
 }
 
+/* App Store button (since launch, 2026-11) */
+.store-cta { margin-top: 2rem; }
+.store-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--navy-950);
+  font: 700 1.0625rem/1.2 var(--font-head);
+  text-decoration: none;
+  box-shadow: 0 14px 34px -14px rgba(201, 168, 76, 0.65);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.store-button:hover { background: var(--gold-bright); color: var(--navy-950); transform: translateY(-1px); }
+.store-button:active { transform: translateY(0); }
+.store-note {
+  margin-top: 0.85rem;
+  color: var(--text-faint);
+  font-size: 0.9375rem;
+}
+
 /* ---------- Home: screenshot gallery ---------- */
 
 .gallery { padding-bottom: clamp(2.5rem, 2rem + 3vw, 4.5rem); }
@@ -288,6 +314,35 @@ a:hover { color: var(--gold-bright); }
   filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.5));
 }
 
+/* A plain screen capture drawn inside a dark titanium iPhone frame with its Dynamic Island. */
+.shot .device {
+  position: relative;
+  display: block;
+  padding: 2.6%;
+  border-radius: 15.5% / 7.4%;
+  background: linear-gradient(150deg, #55585e 0%, #2b2d31 28%, #1b1c1f 72%, #3a3c41 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+    inset 0 0 0 3px rgba(0, 0, 0, 0.55),
+    0 24px 40px -12px rgba(0, 0, 0, 0.6);
+}
+.shot .device img {
+  display: block;
+  border-radius: 12.8% / 5.9%;
+  filter: none;
+}
+.shot .device::after {
+  content: "";
+  position: absolute;
+  top: 3.6%;
+  left: 50%;
+  width: 27%;
+  height: 3.5%;
+  border-radius: 999px;
+  background: #000;
+  transform: translateX(-50%);
+}
+
 .shot figcaption {
   margin-top: 1.1rem;
   text-align: center;
@@ -314,7 +369,7 @@ a:hover { color: var(--gold-bright); }
 @media (min-width: 64rem) {
   .shots {
     grid-auto-flow: row;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 1.75rem;
     width: min(100% - 2 * var(--gutter), var(--max));
     margin-inline: auto;
@@ -380,6 +435,16 @@ a:hover { color: var(--gold-bright); }
   max-width: 34rem;
   color: var(--text-muted);
   font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
+}
+.feature-text p:not(.eyebrow) + p { margin-top: 0.9rem; }
+/* A second headline inside one feature (Listen, then Playlists). */
+.feature-text p.eyebrow.feature-subhead { margin-top: 2.25rem; }
+/* "Coming soon" pill under the audio text (Arabic audio, planned for the first update). Remove it when that ships. */
+.feature-text p.status.coming-note {
+  margin-top: 1.1rem;
+  padding: 0.55rem 1rem;
+  color: var(--text);
+  font-size: 0.9375rem;
 }
 
 .panel {
@@ -450,6 +515,8 @@ a:hover { color: var(--gold-bright); }
   line-height: 1.8;
   text-align: center;
 }
+/* A dua of several lines: one size down, so each line of the Arabic stays whole in the card. */
+.arabic.multiline { font-size: clamp(1.4rem, 1.2rem + 0.9vw, 1.75rem); line-height: 1.9; }
 
 .translit {
   color: var(--text-muted);
@@ -525,6 +592,132 @@ a:hover { color: var(--gold-bright); }
   line-height: 1.5;
 }
 
+/* Home: "Where the hours go" (phone time vs five minutes of dua) */
+
+.hours { border-top: 1px solid var(--line); }
+.hours .section-head { max-width: 54rem; }
+.hours .section-head h2 { text-wrap: balance; }
+/* Two "becomes" rows: phone time per day turns into days per year; five minutes of dua into hours with Allah. */
+.equations {
+  display: grid;
+  gap: 1rem;
+  max-width: 52rem;
+  margin-inline: auto;
+}
+.equation {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(0.75rem, 0.5rem + 1.5vw, 2rem);
+  padding: clamp(1.25rem, 1rem + 1vw, 1.75rem) clamp(1.25rem, 1rem + 1.5vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(243, 238, 223, 0.065), rgba(243, 238, 223, 0.025));
+}
+.equation-gold {
+  border-color: var(--gold-line);
+  background: linear-gradient(180deg, rgba(201, 168, 76, 0.16), rgba(201, 168, 76, 0.05));
+}
+.eq-side { display: grid; gap: 0.35rem; }
+.eq-side:last-child { text-align: right; }
+.eq-num {
+  color: var(--text);
+  font: 700 clamp(2rem, 1.5rem + 2.4vw, 3.25rem)/1 var(--font-head);
+  letter-spacing: -0.03em;
+}
+.equation-gold .eq-num { color: var(--gold); }
+.eq-label { color: var(--text-muted); font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem); }
+.eq-arrow { width: 2rem; height: 2rem; color: var(--text-faint); }
+.equation-gold .eq-arrow { color: var(--gold); }
+.eq-note {
+  margin-top: 0.25rem;
+  color: var(--text-faint);
+  font-size: 0.875rem;
+  text-align: center;
+}
+@media (max-width: 34rem) {
+  .equation { grid-template-columns: 1fr; text-align: center; }
+  .eq-side:last-child { text-align: center; }
+  .eq-arrow { margin-inline: auto; transform: rotate(90deg); }
+}
+
+/* The decision the numbers lead to, with the App Store button. */
+.hours-decision {
+  max-width: 38rem;
+  margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) auto 0;
+  text-align: center;
+}
+.hours-decision-lead {
+  font: 700 clamp(1.375rem, 1.15rem + 1vw, 1.875rem)/1.25 var(--font-head);
+  text-wrap: balance;
+}
+.hours-decision-text {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
+  text-wrap: balance;
+}
+.hours-decision-text strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  font-size: clamp(1.1875rem, 1.05rem + 0.5vw, 1.375rem);
+  font-weight: 600;
+}
+.hours-decision .store-cta { margin-top: 1.5rem; }
+.underline-gold {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.16em;
+}
+
+.hours-hadith {
+  max-width: 40rem;
+  margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) auto 0;
+  text-align: center;
+}
+.hours-hadith blockquote { margin: 0; }
+.hours-hadith .arabic-line {
+  color: var(--gold);
+  font-family: var(--font-arabic);
+  font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  line-height: 1.7;
+}
+.hours-hadith blockquote p:not(.arabic-line) {
+  margin-top: 0.75rem;
+  font: 600 clamp(1.125rem, 1rem + 0.5vw, 1.375rem)/1.45 var(--font-head);
+}
+.hours-hadith figcaption {
+  margin-top: 0.75rem;
+  color: var(--text-faint);
+  font-size: 0.9375rem;
+}
+
+/* Home: the app's category artwork, as the Quick Access tiles show it (picture with its name over the bottom). */
+.art-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.art-grid li {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 1px var(--line), 0 24px 40px -24px rgba(0, 0, 0, 0.7);
+}
+.art-grid img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.art-grid span {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 1.75rem 0.85rem 0.7rem;
+  background: linear-gradient(180deg, transparent, rgba(8, 17, 31, 0.85));
+  font: 700 clamp(0.875rem, 0.8rem + 0.3vw, 1rem)/1.2 var(--font-head);
+}
+
 /* Categories */
 
 .library-count {
@@ -544,6 +737,34 @@ a:hover { color: var(--gold-bright); }
   color: var(--text-muted);
   font-size: 0.9375rem;
 }
+
+/* The reviewer credit under the sources text: scoped to the 223 Hisn al-Muslim duas, as in the app's
+   Settings, Sources & credits. Never widen it to all duas or to the audio. */
+.reviewed {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--gold-line);
+  border-radius: var(--radius-sm);
+  background: var(--gold-wash);
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+.reviewed .icon { width: 1.35rem; height: 1.35rem; margin-top: 0.1rem; color: var(--gold); }
+.reviewed strong { color: var(--text); }
+
+/* The library card's chip groups, titled as the app's Duas tab sections ("By need", "By category"). */
+.library-group {
+  margin: 1.25rem 0 0.6rem;
+  color: var(--text-faint);
+  font: 700 0.75rem/1.2 var(--font-head);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.library-note + .library-group { margin-top: 0; }
 
 .chips {
   display: flex;

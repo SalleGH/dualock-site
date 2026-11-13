@@ -3,292 +3,370 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DuaLock: Coming soon</title>
-<meta name="description" content="DuaLock is coming soon to the App Store. Join the waitlist and we'll email you the day it launches.">
+<title>DuaLock: A dua before you scroll</title>
+<meta name="description" content="A dua before you scroll. 282 duas from the Qur'an and Sunnah with English audio, a personal Dua Path, playlists and Focus Mode for iPhone.">
+<meta name="apple-itunes-app" content="app-id=6759058972">
 <meta name="theme-color" content="#0b1628">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/site.css">
-<link rel="preconnect" href="https://api.dualock.app" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DuaLock">
-<meta property="og:title" content="DuaLock: Coming soon">
-<meta property="og:description" content="DuaLock is coming soon to the App Store. Join the waitlist and we'll email you the day it launches.">
-<meta property="og:image" content="https://dualock.app/assets/img/og-soon.jpg">
+<meta property="og:title" content="DuaLock: A dua before you scroll">
+<meta property="og:description" content="Turn the urge to scroll into a moment with Allah. 282 duas from the Qur'an and Sunnah with English audio, a personal Dua Path, and Focus Mode. Now on the App Store.">
+<meta property="og:image" content="https://dualock.app/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The DuaLock app icon with the words Coming soon.">
+<meta property="og:image:alt" content="The DuaLock app icon beside an iPhone showing a short dua with English audio.">
 <meta name="twitter:card" content="summary_large_image">
-<style>
-  /* Coming-soon page. Shared tokens and base styles live in assets/site.css. */
-
-  .soon {
-    display: grid;
-    place-items: center;
-    padding-block: clamp(3rem, 2rem + 6vh, 6rem);
-    text-align: center;
-  }
-
-  .soon-icon {
-    width: clamp(9.5rem, 7rem + 12vw, 13.5rem);
-    aspect-ratio: 1;
-    margin-inline: auto;
-    border-radius: 22.37%;
-    box-shadow:
-      0 0 0 1px rgba(243, 238, 223, 0.14),
-      0 30px 70px -20px rgba(0, 0, 0, 0.75),
-      0 0 120px rgba(201, 168, 76, 0.28);
-  }
-
-  .soon-name {
-    margin-top: clamp(1.75rem, 1.25rem + 2vw, 2.5rem);
-    color: var(--gold);
-    font: 700 0.9375rem/1.3 var(--font-head);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-
-  .soon h1 {
-    margin-top: 0.35rem;
-    font-size: clamp(3.5rem, 1.9rem + 8vw, 7rem);
-    line-height: 0.98;
-    letter-spacing: -0.035em;
-  }
-
-  .soon-lede {
-    max-width: 25rem;
-    margin: 1.25rem auto 0;
-    color: var(--text-muted);
-    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
-  }
-
-  .waitlist {
-    display: flex;
-    gap: 0.4rem;
-    width: min(100%, 29rem);
-    margin: 2rem auto 0;
-    padding: 0.375rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: var(--surface);
-    transition: border-color 0.2s, background-color 0.2s;
-  }
-  .waitlist[hidden] { display: none; }
-  .waitlist:focus-within {
-    border-color: var(--gold-line);
-    background: var(--surface-strong);
-  }
-
-  .waitlist input {
-    flex: 1;
-    min-width: 0;
-    min-height: 3rem;
-    padding: 0 1.1rem;
-    border: 0;
-    background: transparent;
-    color: var(--text);
-    font: 400 1rem/1.2 var(--font-body);
-  }
-  .waitlist input::placeholder { color: var(--text-faint); }
-  .waitlist input:focus-visible { outline: none; }
-
-  .waitlist .button {
-    min-height: 3rem;
-    padding-inline: 1.4rem;
-    border: 0;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .waitlist .button:disabled { opacity: 0.7; cursor: progress; }
-
-  @media (max-width: 30rem) {
-    .waitlist {
-      flex-direction: column;
-      border-radius: var(--radius);
-    }
-    .waitlist input { text-align: center; }
-    .waitlist .button { width: 100%; border-radius: 12px; }
-  }
-
-  .honeypot {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
-
-  .waitlist-error {
-    min-height: 1.5rem;
-    margin-top: 0.75rem;
-    color: #f0b37e;
-    font-size: 0.9375rem;
-  }
-  .waitlist-error:empty { display: none; }
-
-  .waitlist-note {
-    margin-top: 0.9rem;
-    color: var(--text-faint);
-    font-size: 0.875rem;
-  }
-
-  .joined {
-    width: min(100%, 29rem);
-    margin: 2rem auto 0;
-    padding: 1.5rem 1.25rem;
-    border: 1px solid var(--gold-line);
-    border-radius: var(--radius);
-    background: var(--gold-wash);
-  }
-  .joined:focus { outline: none; }
-  .joined-check {
-    display: grid;
-    place-items: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    margin: 0 auto 0.85rem;
-    border-radius: 50%;
-    background: var(--gold);
-    color: var(--navy-900);
-  }
-  .joined-check .icon { stroke-width: 2.4; }
-  .joined-title { font: 700 1.375rem/1.2 var(--font-head); }
-  .joined p:last-child { margin-top: 0.4rem; color: var(--text-muted); }
-
-  .soon-footer {
-    padding-block: 1.5rem 2rem;
-    color: var(--text-faint);
-    font-size: 0.875rem;
-    text-align: center;
-  }
-  .soon-footer ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.25rem 1.25rem;
-    margin: 0 0 0.5rem;
-    padding: 0;
-    list-style: none;
-  }
-  .soon-footer a {
-    display: inline-block;
-    padding-block: 0.35rem;
-    color: var(--text-muted);
-    text-decoration: none;
-  }
-  .soon-footer a:hover { color: var(--text); text-decoration: underline; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-    .rise-2 { animation-delay: 0.08s; }
-    .rise-3 { animation-delay: 0.16s; }
-    .rise-4 { animation-delay: 0.24s; }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-    }
-  }
-</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<main id="main" class="container soon">
-  <div>
-    <img class="soon-icon rise" src="assets/img/icon-640.webp" width="640" height="640" alt="DuaLock app icon: hands raised in dua beneath a mosque dome and a crescent moon">
-    <p class="soon-name rise rise-2">DuaLock</p>
-    <h1 class="rise rise-2">Coming soon</h1>
-    <p class="soon-lede rise rise-3">Join the waitlist and we'll email you the day DuaLock lands on the App&nbsp;Store.</p>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12.2 2.2 2.2 4.3-4.6"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9.5h3l4.5-3.5v12L7 14.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6"/><path d="M18.3 6.3a8 8 0 0 1 0 11.4"/></symbol>
+  <symbol id="i-sunrise" viewBox="0 0 24 24"><path d="M3 18.5h18"/><path d="M7 18.5a5 5 0 0 1 10 0"/><path d="M12 5v4"/><path d="m5.3 9.3 2 2"/><path d="m18.7 9.3-2 2"/><path d="M2.5 14.5H5"/><path d="M19 14.5h2.5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.6 4 5.3v13c3-.7 6-.3 8 1.2 2-1.5 5-1.9 8-1.2v-13c-3-.7-6-.3-8 1.2Z"/><path d="M12 6.5v13"/></symbol>
+  <symbol id="i-user-x" viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c.8-3.6 3.4-5.5 6.5-5.5 1.3 0 2.5.3 3.5.9"/><path d="m16 15 5 5"/><path d="m21 15-5 5"/></symbol>
+  <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="m3 3 18 18"/><path d="M10.6 5.1Q11.3 5 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.1"/><path d="M6.6 6.6C3.9 8.4 2 12 2 12s3.5 7 10 7c1.9 0 3.5-.5 4.9-1.3"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+  <symbol id="i-iphone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.5 18.5h3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="m4 17 4.5-4.5 3.5 3.5 2.5-2.5 5.5 5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+</svg>
 
-    <div class="rise rise-4">
-      <form id="waitlist" class="waitlist" novalidate>
-        <label class="visually-hidden" for="email">Email address</label>
-        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="Your email" required>
-        <div class="honeypot" aria-hidden="true">
-          <label for="company">Leave this empty</label>
-          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./"><img src="assets/img/icon.webp" alt="" width="32" height="32">DuaLock</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li class="nav-extra"><a href="#features">Features</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="support/">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="container">
+      <img class="hero-icon" src="assets/img/icon.webp" width="384" height="384" alt="DuaLock app icon: hands raised in dua beneath a mosque dome and a crescent moon">
+      <h1>DuaLock</h1>
+      <p class="tagline">A dua before you scroll</p>
+      <p class="lede">DuaLock turns the moment you reach for your phone into a moment with Allah.</p>
+      <p class="store-cta"><a class="store-button" href="https://apps.apple.com/app/dualock/id6759058972">Download on the App Store</a></p>
+      <p class="store-note">For iPhone with iOS 17 or later. 7-day free trial for new subscribers.</p>
+    </div>
+  </section>
+
+  <section class="gallery" aria-labelledby="gallery-title">
+    <h2 id="gallery-title" class="visually-hidden">Screenshots</h2>
+    <ul class="shots" role="list" tabindex="0" aria-label="Screenshots of DuaLock">
+      <li>
+        <figure class="shot">
+          <span class="device"><img src="assets/img/screen-unlock.webp" width="700" height="1520" decoding="async" alt="The unlock sheet: Glory is to Allah and praise is to Him, with English audio, the Arabic, its transliteration and a padlock that opens your apps."></span>
+          <figcaption><strong>A dua before you scroll</strong><span>Read or listen, then your apps open</span></figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="shot">
+          <span class="device"><img src="assets/img/screen-player.webp" width="700" height="1520" decoding="async" alt="The full player, playing the dua of Musa for ease from a playlist called For my exams, with skip, shuffle and repeat."></span>
+          <figcaption><strong>Listen to every dua</strong><span>Clear English audio for all 282, even offline</span></figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="shot">
+          <span class="device"><img src="assets/img/screen-sources.webp" width="700" height="1520" loading="lazy" decoding="async" alt="The dua for waking up: its English, Arabic and transliteration, its grading and its hadith sources."></span>
+          <figcaption><strong>Authentic, with the source</strong><span>Every dua shows its source and grading</span></figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="shot">
+          <span class="device"><img src="assets/img/screen-path.webp" width="700" height="1520" loading="lazy" decoding="async" alt="A Dua Path built from onboarding answers: the first week of duas, one for each day, and a daily time."></span>
+          <figcaption><strong>Your own Dua Path</strong><span>A dua for each day, chosen from your answers</span></figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="shot">
+          <span class="device"><img src="assets/img/screen-playlist.webp" width="700" height="1520" loading="lazy" decoding="async" alt="A playlist called For my exams with six duas, playing on repeat."></span>
+          <figcaption><strong>Playlists on repeat</strong><span>Learn duas by heart on a walk or a drive</span></figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="shot">
+          <span class="device"><img src="assets/img/screen-library.webp" width="700" height="1520" loading="lazy" decoding="async" alt="The Duas tab: For you, then duas by need, such as My heart, Health and loss, Family, and Work, study and money."></span>
+          <figcaption><strong>Duas for every need</strong><span>Worry, exams, family and more</span></figcaption>
+        </figure>
+      </li>
+    </ul>
+    <p class="gallery-hint" aria-hidden="true">Swipe to see more</p>
+  </section>
+
+  <section class="section hours" aria-labelledby="hours-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Where the hours go</p>
+        <h2 id="hours-title">Your phone gets hours.<br>What if five minutes went to Allah?</h2>
+      </header>
+      <div class="equations">
+        <div class="equation">
+          <div class="eq-side"><span class="eq-num">4 hours</span><span class="eq-label">a day on your phone</span></div>
+          <svg class="icon eq-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="visually-hidden">becomes</span>
+          <div class="eq-side"><span class="eq-num">61 days</span><span class="eq-label">a year, gone to the screen</span></div>
         </div>
-        <button class="button" type="submit">Join the waitlist</button>
-      </form>
-      <p id="waitlist-error" class="waitlist-error" role="alert"></p>
-      <p id="waitlist-note" class="waitlist-note">We'll only email you about DuaLock. <a href="privacy/#waitlist">Privacy</a></p>
-
-      <div id="joined" class="joined" tabindex="-1" hidden>
-        <div class="joined-check" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+        <div class="equation equation-gold">
+          <div class="eq-side"><span class="eq-num">5 minutes</span><span class="eq-label">a day of dua</span></div>
+          <svg class="icon eq-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="visually-hidden">becomes</span>
+          <div class="eq-side"><span class="eq-num">30 hours</span><span class="eq-label">a year given to Allah</span></div>
         </div>
-        <p class="joined-title">You're on the list</p>
-        <p>We'll email you as soon as DuaLock is on the App&nbsp;Store.</p>
+        <p class="eq-note">Based on 4 hours a day, about what many adults spend on their phones. Five minutes is 2% of that.</p>
+      </div>
+      <figure class="hours-hadith">
+        <blockquote>
+          <p class="arabic-line" lang="ar" dir="rtl">أَحَبَّ الأَعْمَالِ أَدْوَمُهَا إِلَى اللَّهِ، وَإِنْ قَلَّ</p>
+          <p>&ldquo;The most beloved deed to Allah is the most regular and constant even if it were little.&rdquo;</p>
+        </blockquote>
+        <figcaption>The Prophet &#xFDFA;, Sahih al-Bukhari 6464</figcaption>
+      </figure>
+      <div class="hours-decision">
+        <p class="hours-decision-lead">Five minutes a day won't happen by itself.<br>But it only takes <span class="underline-gold">one</span> decision.</p>
+        <p class="hours-decision-text"><strong>DuaLock locks the apps that keep you scrolling.</strong> When you open one, a short dua comes first, then your app. Decide once, and the five minutes come every day.</p>
+        <p class="store-cta"><a class="store-button" href="https://apps.apple.com/app/dualock/id6759058972">Download on the App Store</a></p>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section id="features" class="section features" aria-labelledby="features-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Inside DuaLock</p>
+        <h2 id="features-title">One dua at a time, in moments you already have.</h2>
+      </header>
+
+      <div class="feature-list">
+
+        <div class="feature">
+          <div class="feature-text">
+            <div class="feature-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg></div>
+            <p class="eyebrow">Focus Mode</p>
+            <h3>A dua before the apps you choose</h3>
+            <p>Choose the apps that pull you away. When you open one, a short dua comes first. Read it or listen in English, and your apps open for the time you chose.</p>
+          </div>
+          <div class="feature-visual panel">
+            <ol class="steps" role="list">
+              <li><div><strong>Choose your apps</strong><span>With Apple's Screen Time. DuaLock can't see which apps you pick.</span></div></li>
+              <li><div><strong>Say a short dua</strong><span>Tap "Read my dua", then read it or listen in English.</span></div></li>
+              <li><div><strong>Carry on, with Allah remembered</strong><span>Your apps stay open for the time you chose, from 15&nbsp;minutes to 2&nbsp;hours, then lock again.</span></div></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-text">
+            <div class="feature-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-speaker"/></svg></div>
+            <p class="eyebrow">Listen and learn</p>
+            <h3>English audio for every dua</h3>
+            <p>Every dua has its Arabic text, a transliteration to read along with and an English translation, so you know exactly what you're asking Allah for. And all 282 have clear English audio, ready to play even offline.</p>
+            <p class="status coming-note"><span class="status-dot" aria-hidden="true"></span>Coming very soon, insha'Allah: Arabic audio for every dua</p>
+            <p class="eyebrow feature-subhead">Playlists</p>
+            <h3>Learn them by heart, on repeat</h3>
+            <p>Most of us learned Al-Fatiha by hearing it again and again. Playlists bring that to every dua. Make one for each goal, like your mornings, exam week or the hard days, then press play and put it on repeat.</p>
+            <p>Listen on a walk, on the drive to work or while you cook. It keeps playing with your screen locked, with the controls on your Lock Screen, and repeats one dua or the whole list until the words are yours.</p>
+          </div>
+          <div class="feature-visual">
+            <figure class="panel dua-card" aria-label="A dua as DuaLock shows it">
+              <p class="dua-label">Purity of Soul</p>
+              <p class="arabic multiline" lang="ar" dir="rtl">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ وَالْجُبْنِ وَالْبُخْلِ وَالْهَرَمِ وَعَذَابِ الْقَبْرِ اللَّهُمَّ آتِ نَفْسِي تَقْوَاهَا وَزَكِّهَا أَنْتَ خَيْرُ مَنْ زَكَّاهَا أَنْتَ وَلِيُّهَا وَمَوْلاَهَا اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لاَ يَنْفَعُ وَمِنْ قَلْبٍ لاَ يَخْشَعُ وَمِنْ نَفْسٍ لاَ تَشْبَعُ وَمِنْ دَعْوَةٍ لاَ يُسْتَجَابُ لَهَا</p>
+              <p class="translation">O Allah, I seek refuge in You from helplessness and laziness, from cowardice and miserliness, from the frailty of old age and from the punishment of the grave. O Allah, give my soul its piety and purify it. You are the best to purify it. You are its Guardian and its Master. O Allah, I seek refuge in You from knowledge that does not benefit, from a heart that is not humble, from a soul that is never satisfied, and from a supplication that is not answered.</p>
+              <p class="dua-audio"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-speaker"/></svg>With English audio</p>
+              <figcaption class="dua-source"><span class="grade">Sahih (Muslim)</span><span>Muslim 2722</span></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-text">
+            <div class="feature-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-sunrise"/></svg></div>
+            <p class="eyebrow">Your Dua Path</p>
+            <h3>Duas picked for your goals</h3>
+            <p>Most of us know a handful of duas by heart and keep meaning to learn more. Tell DuaLock your goals and what's on your heart, and it picks your duas around them: the ones that speak to your life, at the right time of day, with new ones as you go.</p>
+          </div>
+          <div class="feature-visual panel">
+            <ol class="steps" role="list">
+              <li><div><strong>Tell it what's on your heart</strong><span>A few questions when you begin: your goals, your struggles and what you're praying for.</span></div></li>
+              <li><div><strong>Your first week, built for you</strong><span>Seven days, one dua each day, picked from your answers.</span></div></li>
+              <li><div><strong>Then a new dua every day</strong><span>Chosen for what you're praying for and the time of day. New duas come first, and the ones you've met come back after a while, so they stay with you.</span></div></li>
+              <li><div><strong>Reminders that fit your day</strong><span>Your daily dua at the time you choose, plus your morning and evening adhkar. Up to three a day, each one optional.</span></div></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-text">
+            <div class="feature-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-book"/></svg></div>
+            <p class="eyebrow">Qur'an and Sunnah</p>
+            <h3>Authentic duas, with sources you can check</h3>
+            <p>DuaLock's 282 duas come from the Qur'an and the Sunnah: 223 as compiled in <em class="nowrap">Hisn al-Muslim</em> (Fortress of the Muslim) by Sa'id bin Ali bin Wahf <span class="nowrap">al-Qahtani</span>, 43 more from the Qur'an and 16 more from the hadith. Every dua shows its source and, where there is one, its grading, so you can check it yourself.</p>
+            <p class="reviewed"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-check"/></svg><span>The Arabic text, English translation and transliteration of the 223 duas from <em class="nowrap">Hisn al-Muslim</em> were reviewed by <strong>Arwa Hesham</strong>, Specialist in Islamic and Arabic Studies, <span class="nowrap">Al-Azhar University</span>.</span></p>
+          </div>
+          <div class="feature-visual panel">
+            <p class="library-count"><strong>282</strong><span>duas from the Qur'an and Sunnah</span></p>
+            <p class="library-note">Browse them three ways, as in the app:</p>
+            <h4 class="library-group">By source</h4>
+            <ul class="chips" role="list">
+              <li>From the Qur'an</li>
+              <li>From <span class="nowrap">Hisn al-Muslim</span></li>
+              <li>From other hadith</li>
+            </ul>
+            <h4 class="library-group">By need</h4>
+            <ul class="chips" role="list">
+              <li>My heart</li>
+              <li>Health and loss</li>
+              <li>Family</li>
+              <li>Work, study and money</li>
+              <li>Faith and growth</li>
+              <li>Protection and hardship</li>
+            </ul>
+            <h4 class="library-group">By category</h4>
+            <ul class="chips" role="list">
+              <li>Morning &amp; Evening</li>
+              <li>Prayer</li>
+              <li>Sleep &amp; Waking</li>
+              <li>Daily Life</li>
+              <li>Dhikr &amp; Repentance</li>
+              <li>Protection &amp; Hardship</li>
+              <li>Ramadan &amp; Fasting</li>
+              <li>Social</li>
+              <li>Travel</li>
+              <li>Sickness &amp; Death</li>
+              <li>Weather &amp; Nature</li>
+              <li>Hajj &amp; Umrah</li>
+              <li>Faith &amp; Guidance</li>
+              <li>Family &amp; Parents</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-text">
+            <div class="feature-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-image"/></svg></div>
+            <p class="eyebrow">Calm by design</p>
+            <h3>A beautiful place to come back to</h3>
+            <p>Every category in DuaLock has its own artwork: a prayer room lit by lanterns, the Qur'an glowing on its stand, minarets at sunset under a crescent moon.</p>
+            <p>It makes finding a dua feel calm and inviting, never like searching a database. A place you want to open, not one you have to.</p>
+          </div>
+          <div class="feature-visual">
+            <ul class="art-grid" role="list" aria-label="Artwork from four of DuaLock's categories">
+              <li><img src="assets/img/art-morning-evening.webp" width="720" height="480" loading="lazy" decoding="async" alt=""><span>Morning &amp; Evening</span></li>
+              <li><img src="assets/img/art-prayer.webp" width="720" height="480" loading="lazy" decoding="async" alt=""><span>Prayer</span></li>
+              <li><img src="assets/img/art-quran.webp" width="720" height="480" loading="lazy" decoding="async" alt=""><span>From the Qur'an</span></li>
+              <li><img src="assets/img/art-family.webp" width="720" height="480" loading="lazy" decoding="async" alt=""><span>Family &amp; Parents</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" class="section privacy" aria-labelledby="privacy-title">
+    <div class="container">
+      <div class="privacy-panel">
+        <div class="privacy-intro">
+          <div class="label-mark"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-check"/></svg></div>
+          <p class="eyebrow">Privacy</p>
+          <h2 id="privacy-title">Data Not Collected</h2>
+          <p class="privacy-text">That's DuaLock's privacy label on the App Store. There's no account and no sign-up, no ads and no tracking. What you enter stays on your iPhone.</p>
+          <p class="text-link"><a href="privacy/">Read the privacy policy</a><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></p>
+        </div>
+        <ul class="privacy-list" role="list">
+          <li><span class="list-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-user-x"/></svg></span><div><strong>No account, no sign-up</strong><span>Open DuaLock and begin. There's nothing to register.</span></div></li>
+          <li><span class="list-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-eye-off"/></svg></span><div><strong>No ads, no tracking</strong><span>No analytics either. DuaLock has no server of its own.</span></div></li>
+          <li><span class="list-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-iphone"/></svg></span><div><strong>Your answers stay on your iPhone</strong><span>Your Dua Path is made on your device, from the answers you give.</span></div></li>
+          <li><span class="list-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg></span><div><strong>Your app choices stay private</strong><span>Apple's Screen Time keeps them private: DuaLock can't see which apps you choose.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section faq" aria-labelledby="faq-title">
+    <div class="narrow">
+      <header class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2 id="faq-title">Questions</h2>
+      </header>
+      <div class="faq-list">
+        <details>
+          <summary>What is DuaLock?</summary>
+          <div class="answer">
+            <p>DuaLock is an iPhone app for remembering Allah through your day. It has 282 authentic duas from the Qur'an and the Sunnah, including <span class="nowrap">Hisn al-Muslim</span> (Fortress of the Muslim), each with Arabic, transliteration, an English translation, English audio and its source.</p>
+            <p>It builds you a personal Dua Path, keeps your morning and evening adhkar with reminders, lets you make playlists to learn duas by heart, and places a short dua before the apps you choose with Focus Mode. DuaLock needs iOS 17 or later.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How does Focus Mode work?</summary>
+          <div class="answer">
+            <p>You choose the apps that pull you away, using Apple's Screen Time. When you open one of them, it's time for a dua: tap "Read my dua" and DuaLock brings it to you. Read it or listen in English, tap the padlock, and your apps stay open for the time you chose, from 15&nbsp;minutes to 2&nbsp;hours. Then they lock again.</p>
+            <p>DuaLock never sees which apps you picked, and you can turn Focus Mode off anytime in the Focus tab.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Do I need an account?</summary>
+          <div class="answer">
+            <p>No. There's no account and no sign-up. Your answers stay on your iPhone, and DuaLock collects no data: its App Store privacy label is "Data Not Collected".</p>
+          </div>
+        </details>
+        <details>
+          <summary>What does it cost?</summary>
+          <div class="answer">
+            <p>DuaLock requires a DuaLock Premium subscription, billed yearly or monthly through your Apple Account, with a 7-day free trial for new subscribers. Prices vary by country, and the app shows yours before you subscribe.</p>
+            <p>The subscription pays for DuaLock's own content and services: the duas with their sources, English audio, your Dua Path, playlists and reminders, and ongoing updates. You can cancel anytime. See the <a href="terms/">Terms of Use</a> for the details.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Can I hear the duas in Arabic?</summary>
+          <div class="answer">
+            <p>Not yet. Today every dua has English audio, with its Arabic text to read along. Arabic audio for every dua is coming in an update very soon, insha'Allah.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Where can I get DuaLock?</summary>
+          <div class="answer">
+            <p>On the App Store, for iPhone with iOS 17 or later: <a href="https://apps.apple.com/app/dualock/id6759058972">DuaLock on the App Store</a>.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer class="soon-footer">
-  <ul>
-    <li><a href="privacy/">Privacy Policy</a></li>
-    <li><a href="mailto:skalmandev@gmail.com">skalmandev@gmail.com</a></li>
-  </ul>
-  <p>© 2026 DuaLock</p>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/img/icon.webp" alt="" width="44" height="44" loading="lazy">
+      <div>
+        <p class="footer-name">DuaLock</p>
+        <p class="footer-tag">A dua before you scroll</p>
+      </div>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-links">
+        <li><a href="https://apps.apple.com/app/dualock/id6759058972">App Store</a></li>
+        <li><a href="privacy/">Privacy Policy</a></li>
+        <li><a href="terms/">Terms of Use</a></li>
+        <li><a href="support/">Support</a></li>
+        <li><a href="mailto:skalmandev@gmail.com">skalmandev@gmail.com</a></li>
+      </ul>
+    </nav>
+    <p class="copyright">© 2026 DuaLock</p>
+  </div>
 </footer>
-
-<script>
-  (function () {
-    var form = document.getElementById("waitlist");
-    var email = form.elements.email;
-    var button = form.querySelector("button");
-    var error = document.getElementById("waitlist-error");
-    var note = document.getElementById("waitlist-note");
-    var joined = document.getElementById("joined");
-
-    // Where the visitor came from, e.g. ?utm_source=instagram or the referring site.
-    var params = new URLSearchParams(location.search);
-    var source = params.get("utm_source") || params.get("ref") || "";
-    if (!source && document.referrer) {
-      try { source = new URL(document.referrer).hostname; } catch (e) {}
-    }
-
-    function done() {
-      form.hidden = true;
-      note.hidden = true;
-      joined.hidden = false;
-      joined.focus();
-    }
-
-    function fail(message) {
-      error.textContent = message;
-      button.disabled = false;
-      button.textContent = "Join the waitlist";
-    }
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      error.textContent = "";
-      email.value = email.value.trim();
-      if (!email.checkValidity()) {
-        error.textContent = "Please enter a valid email address.";
-        email.focus();
-        return;
-      }
-
-      button.disabled = true;
-      button.textContent = "Joining…";
-
-      fetch("https://api.dualock.app/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.value, company: form.elements.company.value, source: source || "direct" })
-      })
-        .then(function (response) {
-          if (response.ok) return done();
-          fail(response.status === 400
-            ? "Please enter a valid email address."
-            : "Something went wrong. Please try again.");
-        })
-        .catch(function () {
-          fail("Couldn't reach the server. Check your connection and try again.");
-        });
-    });
-  })();
-</script>
 </body>
 </html>
